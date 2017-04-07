@@ -5,11 +5,11 @@
 <% content_for :image, image_path(picture.url) %>
 <% content_for :url, "/websites/" + @website.id.to_s %>
 
-<h1>header to go here</h1>
+<%= render partial: 'header' %>
 
 
 <h1><%= @website.title %></h1>
-<%= image_tag picture.url, alt: picture.description %>
+<%= image_tag picture.url, alt: picture.description, width: "300" %>
 <h3><%= @website.description %></h3>
 
 <div class='article'>

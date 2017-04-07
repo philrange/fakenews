@@ -12,6 +12,6 @@
 <% Category.where(:name => 'people').map{|category| category.keywords}.flatten.each do |keyword| %>
       <%= keyword.name %>
       <% keyword.pictures.each do |picture| %>
-      	<%= picture.url %>
+      	<%= image_tag picture.url %>
       <% end %>
 <% end %>

@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
 
+  get 'websites/random' => 'websites#random'
+  
   resources :categories
   resources :websites
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

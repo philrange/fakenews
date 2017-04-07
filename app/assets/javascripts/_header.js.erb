@@ -1,0 +1,13 @@
+$(window).scroll(function () { 
+	if ($(this).scrollTop() > 140) {
+		$("#header-fixed").addClass("header-hidden-override");
+		// $("#header-fixed").show(300);
+		$("#header-non-fixed").hide(300);
+		// $("#search-trigger").hide();
+	} else {
+		$("#header-fixed").removeClass("header-hidden-override");
+		// $("#search-trigger").show();
+		// $("#header-fixed").hide(300);
+		$("#header-non-fixed").show(300);
+	}
+});
