@@ -30,8 +30,8 @@ class Website < ActiveRecord::Base
   	return Website.where(:keyword_id => keyword.id)
   end
 
-  def get_picture_for_keyword(person, item) 
-  	pictures = person.pictures + item.pictures
+  def get_picture_for_keyword(keywords) 
+  	pictures = keywords.map{|keyword| keyword.pictures}.flatten
   	return !pictures.blank? ? pictures.sample : Picture.find(3)
   end
 
