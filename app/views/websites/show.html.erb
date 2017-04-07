@@ -1,4 +1,5 @@
-<% picture = Picture.find(@website.picture_id) %>
+<% Rails.logger.info @website.attributes %>
+<% picture = @website.picture %>
 
 <% content_for :title, @website.title %>
 <% content_for :description, @website.description %>
@@ -7,16 +8,31 @@
 
 <%= render partial: 'header' %>
 
+<div class='article-background'>
+	<div class='article'>
 
-<h1><%= @website.title %></h1>
-<%= image_tag picture.url, alt: picture.description, width: "300" %>
-<h3><%= @website.description %></h3>
+		<div class='article-title'><%= @website.title %></div>
+		<div class='article-image'><%= image_tag picture.url, alt: picture.description, width: "300" %></div>
+		<div class='article-description-container'><span class='article-description'><%= @website.description %></span></div>
 
-<div class='article'>
-	<%= @website.text %>
+
+		<div class='article-text'><%= @website.text %></div>
+	</div>
 </div>
+
 
 <div class='tags'>
-	<%= Keyword.find(@website.keyword_id).name %>
-	<%= Keyword.find(@website.keyword_id).categories.map{|category| category.get_categories}.flatten %>
+<h3>Other News Nuggets</h3>
+	<% keyword = Keyword.find(@website.keyword_id) %>
+	<% categories = keyword.categories.map{|category| category.get_categories} %>
+	<% keywords = categories.map{|category| @website.get_keywords_in_category(category)}.flatten %>
+	<%#= keywords %>
+	<% other_websites = keywords.map{|keyword| @website.get_websites_for_keyword(keyword)}.flatten.select{|website| website.id != @website.id} %>
+
+	<% other_websites.sample(3).each do |website| %>
+		<%= render partial: 'preview', locals: {website: website} %>
+	<% end %>
+	<br>
+	<br>
 </div>
+

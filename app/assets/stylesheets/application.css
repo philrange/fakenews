@@ -21,7 +21,10 @@ body {
 }
 
 .tags {
-	display: none;
+	/*display: none;*/
+	width: 85%;
+	padding-top: 40px;
+	margin: auto;
 }
 
 
@@ -71,6 +74,87 @@ body {
 .header-hidden-override {
 	color: #eee !important;
 	opacity: 0.8;
+}
+
+
+.article-background {
+	background: #ddd;
+}
+
+.article {
+	width: 85%;
+	padding: 10px;
+	margin: auto;
+}
+
+.article-title {
+	font-size: 42px;
+	padding-bottom: 20px;
+	/*font-weight: bold;*/
+}
+
+.article-image {
+	float: left;
+	display: block;
+}
+
+.article-description-container {
+	float: left;
+	display: inline-block;
+	width: 400px;
+	font-size: 22px;
+	font-weight: bold;
+	color: #333;
+	height: 200px;
+	line-height: 200px;
+	padding-left: 30px;
+}
+
+.article-description {
+	display: inline-block;
+	line-height: 26px;
+	vertical-align: middle;
+}
+
+.article-text {
+	padding-top: 20px;
+	clear: left;
+	margin-top: 20px;
+}
+
+.preview-container a {
+	text-decoration: none;
+}
+
+.preview-container {
+	border: none;
+	background: #fff;
+	color: #000;
+	border-radius: 4px;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	width: 300px;
+	float: left;
+	margin-right: 20px;
+}
+
+.preview-image img {
+	width: 300px;
+	height: 200px;
+}
+
+.preview-text {
+	padding: 8px;
+}
+
+.preview-title {
+	font-weight: bold;
+	color: #333;
+}
+
+.preview-description {
+	margin-top: 4px;
+	font-size: 11px;
+	color: #777;
 }
 
 #footer {

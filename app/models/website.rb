@@ -6,6 +6,7 @@ class Website < ActiveRecord::Base
   def get_random_website
   	 methods = Rules.methods(false)
   	 random_method = methods.sample
+  	 Rails.logger.info(random_method)
   	 Rules.send(random_method, self)
   end
 
@@ -25,9 +26,17 @@ class Website < ActiveRecord::Base
   	return Category.where(:name => category_name).map{|category| category.keywords}.flatten
   end
 
+  def get_websites_for_keyword(keyword)
+  	return Website.where(:keyword_id => keyword.id)
+  end
+
   def get_picture_for_keyword(person, item) 
   	pictures = person.pictures + item.pictures
   	return !pictures.blank? ? pictures.sample : Picture.find(3)
+  end
+
+  def picture 
+  	return Picture.find(picture_id)
   end
 
 

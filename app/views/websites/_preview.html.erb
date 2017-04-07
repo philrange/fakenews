@@ -1,0 +1,10 @@
+<div class='preview-container'>
+	<%= link_to website_path(website) do %>
+		<% picture = website.picture %>
+		<div class='preview-image'><%= image_tag picture.url, alt: picture.description%></div>
+		<div class='preview-text'>
+			<div class='preview-title'><%= website.title %></div> 
+			<div class='preview-description'><%= website.description %></div>
+		</div>
+	<% end %>
+</div>

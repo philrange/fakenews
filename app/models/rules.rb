@@ -28,4 +28,5 @@ class Rules
     sex_with_an_object(website)
   end
 
+
 end
