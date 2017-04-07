@@ -3,11 +3,11 @@
 <head>
   <title>News Nugget - <%= yield(:title) %></title>
 
-<meta property="og:title" content="<%= yield(:title) %>" />
+<meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : 'News Nugget' %>" />
 <meta property="og:url" content="https://mighty-dawn-23088.herokuapp.com<%= yield(:url) %>" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="<%= yield(:description) %>" />
-<meta property="og:image" content="https://mighty-dawn-23088.herokuapp.com<%= yield(:image) || '/default.jpg' %>" />
+<meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : 'Prime nuggets of news.' %>" />
+<meta property="og:image" content="https://mighty-dawn-23088.herokuapp.com<%= content_for?(:image) ? yield(:image) : '/default.jpg' %>" />
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
