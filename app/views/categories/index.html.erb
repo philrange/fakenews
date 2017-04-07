@@ -1,0 +1,17 @@
+  
+<% content_for :title, "All categories" %>
+<h3>All categories</h3>
+
+<ul>
+  	<%= render partial: 'category', collection: @categories %>
+</ul>
+
+
+<%#= Keyword.where(:name 'fish') %>
+<%# Category.find_by_name('people').keywords.each do |keyword| %>
+<% Category.where(:name => 'people').map{|category| category.keywords}.flatten.each do |keyword| %>
+      <%= keyword.name %>
+      <% keyword.pictures.each do |picture| %>
+      	<%= picture.url %>
+      <% end %>
+<% end %>

@@ -1,0 +1,9 @@
+<li>
+	<b><%= category.name %></b> categories: <%= category.get_categories %> 
+	items: 
+	<% category.keywords.each do |keyword| %>
+      <%= keyword.name %>, 
+  	<% end %>
+	<%#= link_to 'Show', category_path(category) %>
+	<ul><%= render partial: "category", collection: category.get_children %></ul>
+</li>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fakenews - <%= yield(:title) %></title>
+
+<meta property="og:title" content="<%= yield(:title) %>" />
+<meta property="og:url" content="http://www.yourdomain.com/<%= yield(:url) %>" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="<%= yield(:description) %>" />
+<meta property="og:image" content="<%= yield(:image) %>" />
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

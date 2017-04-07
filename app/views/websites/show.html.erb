@@ -1,0 +1,22 @@
+<% picture = Picture.find(@website.picture_id) %>
+
+<% content_for :title, @website.title %>
+<% content_for :description, @website.description %>
+<% content_for :image, picture.url %>
+<% content_for :url, "/websites/" + @website.id.to_s %>
+
+<h1>header to go here</h1>
+
+
+<h1><%= @website.title %></h1>
+<img src="<%= picture.url %>" alt="<%= picture.description %>" title="<%= picture.description %>"></img>
+<h3><%= @website.description %></h3>
+
+<div class='article'>
+	<%= @website.text %>
+</div>
+
+<div class='tags'>
+	<%= Keyword.find(@website.keyword_id).name %>
+	<%= Keyword.find(@website.keyword_id).categories.map{|category| category.get_categories}.flatten %>
+</div>

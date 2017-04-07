@@ -1,0 +1,4 @@
+<% @websites.each do |website| %>
+
+	<%= website.title %> <%= link_to 'Show', website_path(website) %>
+<% end %>
