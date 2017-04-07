@@ -24,4 +24,8 @@ class Rules
     website.text = "farts farts farts"
   end
 
+  def Rules.new_rule2(website) 
+    sex_with_an_object(website)
+  end
+
 end
