@@ -3,7 +3,7 @@
 <% content_for :title, @website.title %>
 <% content_for :description, @website.description %>
 <% content_for :image, image_path(picture.url) %>
-<% content_for :url, "/websites/" + @website.id.to_s %>
+<% content_for :url, @website.id.present? ? @website.id.to_s : nil %>
 
 <%= render partial: 'header' %>
 
