@@ -2,14 +2,14 @@
 
 <% content_for :title, @website.title %>
 <% content_for :description, @website.description %>
-<% content_for :image, picture.url %>
+<% content_for :image, image_path(picture.url) %>
 <% content_for :url, "/websites/" + @website.id.to_s %>
 
 <h1>header to go here</h1>
 
 
 <h1><%= @website.title %></h1>
-<img src="<%= picture.url %>" alt="<%= picture.description %>" title="<%= picture.description %>"></img>
+<%= image_tag picture.url, alt: picture.description %>
 <h3><%= @website.description %></h3>
 
 <div class='article'>
