@@ -12,6 +12,7 @@
 
   <title>News Nugget - <%= yield(:title) %></title>
 
+<%= favicon_link_tag 'favicon.ico' %>
 <meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : 'News Nugget' %>" />
 <meta property="og:url" content="https://mighty-dawn-23088.herokuapp.com<%= yield(:url) %>" />
 <meta property="og:type" content="website" />
