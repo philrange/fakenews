@@ -16,6 +16,7 @@ class Rules
     # return "sex " + website.title
   end
 
+
   def Rules.religion(website) 
 
     person = website.get_keywords_in_category('people').sample
@@ -28,6 +29,18 @@ class Rules
     website.picture_id = picture.id
     website.keyword_id = religion.id
     website.text = "No. It's utter nonsense."
+  end  
+
+  def Rules.fart_smeller(website) 
+
+    person = website.get_keywords_in_category('people').sample
+    picture = website.get_picture_for_keyword([person]);
+
+    website.title = "Is " + person.name + " a smart feller, or a fart smeller?"
+    website.description = "What we found out will SHOCK you!"
+    website.picture_id = picture.id
+    website.keyword_id = person.id
+    website.text = "We have evidence of neither."
   end
 
   def Rules.new_rule2(website) 

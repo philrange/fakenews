@@ -29,6 +29,11 @@
 	<%#= keywords %>
 	<% other_websites = keywords.map{|keyword| @website.get_websites_for_keyword(keyword)}.flatten.select{|website| website.id != @website.id} %>
 
+	<% all_websites = Website.all %>
+	<% while other_websites.size < 1 do %>
+		<% other_websites.push(all_websites.sample) %>
+	<% end %>
+
 	<% other_websites.sample(3).each do |website| %>
 		<%= render partial: 'preview', locals: {website: website} %>
 	<% end %>
